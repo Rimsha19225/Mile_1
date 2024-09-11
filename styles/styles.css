@@ -1,0 +1,952 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "jost", sans-serif;
+}
+
+body{
+    width: 100%;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #2b5d4b;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* z-index: 1000; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+.btn-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-group button {
+    border: none;
+    padding: 0.5rem 1rem;
+    background-color: #dbebe4;
+    color: #000;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: capitalize;
+    border-radius: .5rem;
+    box-shadow: inset 0px 0px 0px -15px rgb(200, 70, 167);
+    transition: all 300ms ease-out;
+    position: relative;
+}
+
+.btn-group button:hover,
+.btn-group button:focus {
+    color: #385c4f;
+    box-shadow: inset 0px -20px 0px -15px #99cdb7;
+}
+
+.btn-group button:focus {
+    outline: none;
+}
+
+.btn-group button:after {
+    /* margin-left: 0.5rem; */
+    color: #121212;
+    position: absolute;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all 200ms ease-out;
+}
+
+.btn-group button:focus:after {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.Sec_1 {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/sect_1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    background-attachment: fixed;
+}
+
+.contant-col {
+    column-count: 2;
+    column-gap: 20px;
+}
+
+.contant {
+    margin-left: 200px;
+    margin-top: 80px;
+    padding: 20px;
+    cursor: pointer;
+    text-align: left;
+    background-color: #4e585f;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border-radius: 40px 0 40px 0;
+}
+
+.contant h2 {
+    padding-bottom: 10px;
+    font-size: 50px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: -4px -1px 2px #9b9a9a;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 0.5px;
+    word-spacing: 5px;
+}
+
+.contant p {
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #fff;
+    text-align: justify;
+    text-shadow: -3px 1px 1px #2a2929;
+}
+
+.contant button {
+    width: 150px;
+    height: 40px;
+    margin-top: 10px;
+    padding-top: 5px;
+    font-size: 18px;
+    background-color: #fff;
+    font-weight: bolder;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.contant button:hover {
+    width: 170px;
+    font-size: 20px;
+    background-color: beige;
+}
+
+
+.contant-img img {
+    margin-right: 50px;
+    width: 400px;
+    height: 400px;
+    border-radius: 200px;
+    cursor: pointer;
+}
+
+.Sec_2 {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/sect_2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    background-attachment: fixed;
+}
+
+.Sec_2 h2 {
+    margin: 0 50px;
+    padding-bottom: 30px;
+    font-size: 70px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.main-contant {
+    width: 50%;
+    text-align: left;
+    text-shadow: -3px -1px 2px #b9a4a4;
+    color: #fff;
+    cursor: pointer;
+}
+
+.main-contant h2{
+    margin: 0 100px;
+}
+
+.main-contant-col_1,
+.main-contant-col_2,
+.main-contant-col_3 {
+    margin: 0 100px;
+    width: 950px;
+    column-count: 2;
+    column-gap: 50px;
+}
+
+.main-contant-col_1 img,
+.main-contant-col_2 img,
+.main-contant-col_3 img {
+    width: 100px;
+    height: 100px;
+    border-radius: 200px;
+}
+
+.main-contant-col_1 img:hover,
+.main-contant-col_2 img:hover,
+.main-contant-col_3 img:hover {
+    width: 110px;
+    height: 110px;
+}
+
+.uni,
+.collage,
+.school {
+    margin-bottom: 30px;
+    padding: 10px;
+    font-size: 22px;
+    text-shadow: -2px 1px 1px black;
+    background-color: #3f5c6f;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+
+.Sec_3 {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/sect_3.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    background-attachment: fixed;
+}
+
+.main {
+    font-size: 70px;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.main h2 {
+    margin-bottom: 30px;
+    text-shadow: -3px -1px 2px #b9a4a4;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.main-col {
+    column-count: 2;
+    column-gap: 50px;
+}
+
+.main-col h3 {
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 30px;
+    margin-bottom: 30px;
+    height: 80px;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: -2px 1px 1px #060606;
+    text-align: left;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border-radius: 0 20px;
+    background-color: #3f5c6f;
+}
+
+
+.Sec_4 {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/sect_4.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    background-attachment: fixed;
+}
+
+.experience h2 {
+    color: #fff;
+    font-size: 90px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: -3px -1px 2px #b9a4a4;
+    cursor: pointer;
+}
+
+
+.experience p {
+    margin-top: 20px;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: -2px 1px 1px #0f0f0f;
+    cursor: pointer;
+}
+
+
+.Sec_5{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../assets/sect_5.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    background-attachment: fixed;
+}
+
+.contact h2{
+    color: #fff;
+    font-size: 70px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: -3px -1px 2px #b9a4a4;
+    cursor: pointer;
+}
+
+
+ul{
+    margin-top: 50px;
+    display: flex;
+}
+
+.ic_1{
+    color:  #316FF6;
+}
+
+.ic_2{
+    color: #25D366;
+}
+
+.ic_3{
+    color: #0077B5;
+}
+
+.ic_4{
+    color: #000;
+}
+
+.ic_5{
+    color: #964b00;
+}
+
+ul li{
+    position: relative;
+    display: block;
+    font-size: 65px;
+    height: 80px;
+    width: 80px;
+    background-color: #fff;
+    line-height: 60px;
+    border-radius: 50%;
+    margin: 0 15px;
+    padding-top: 7px;
+    cursor: pointer;
+}
+
+ul li:before{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    background-color: #636163;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    z-index: -1;
+    transform: scale(0.9);
+    transition: .5s;
+}
+
+ul li:before{
+    transform: scale(1);
+    box-shadow: 0 0 15px #b0f1e4;
+}
+
+ul li:hover{
+    transform: scale(1);
+    box-shadow: 0 0 15px #b0f1e4;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .contant {
+        margin-left: 50px;
+        margin-top: 30px;
+    }
+
+    .contant-col {
+        column-count: 1;
+    }
+
+    .main-contant {
+        width: 90%;
+    }
+
+    .main-contant-col_1,
+    .main-contant-col_2,
+    .main-contant-col_3 {
+        margin: 0 20px;
+        width: 100%;
+    }
+
+    .navbar {
+        padding: 0.5rem 0;
+    }
+}
+
+
+@media (max-width: 900px) {
+    .contant {
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+
+    .contant-img img{
+        width: 300px;
+        height: 300px;
+        margin-top: 12px;
+        margin-left: 30px;
+    }
+
+    .contant h2{
+        font-size: 55px;
+    }
+
+    .contant p{
+        font-size: 25px;
+    }
+
+    .main-contant h2{
+        font-size: 55px;
+        margin: 0 35px;
+    }
+
+    .uni,
+    .collage,
+    .school{
+        font-size: 25px;
+        margin: 15px 0;
+    }
+
+    .uni-img img,
+    .collage-img img,
+    .school-img img{
+        width: 120px;
+        height: 120px;
+    }
+
+    .btn-group {
+        gap: 1rem;
+    }
+
+    .btn-group button{
+        padding: 0.4 0.7rem;
+        font-size: 1.5rem;
+    }
+
+    .main h2{
+        font-size: 55px;
+    }
+
+    .main-col h3{
+        padding-bottom: 80px;
+        font-size: 20px;
+    }
+
+    .experience h2{
+        font-size: 55px;
+    }
+
+    .contact h2{
+        font-size: 55px;
+    }
+
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+    }
+
+
+    .contact li{
+        padding-top: 11px;
+        font-size: 75px;
+        height: 100px;
+        width: 100px;
+        margin: 0 15px;
+    }
+}
+
+
+@media (max-width: 800px) {
+    .contant {
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+
+    .contant-img img{
+        width: 300px;
+        height: 300px;
+        margin-top: 12px;
+        margin-left: 30px;
+    }
+
+    .main-contant {
+        width: 100%;
+    }
+
+    .btn-group button{
+        padding: 0 0.5rem;
+    }
+
+    .main h2{
+        font-size: 55px;
+    }
+
+    .main-col h3{
+        padding-bottom: 80px;
+        font-size: 20px;
+    }
+
+    .experience h2{
+        font-size: 55px;
+    }
+
+    .contact h2{
+        font-size: 55px;
+    }
+
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .btn-group {
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .contact li{
+        padding-top: 4px;
+        font-size: 40px;
+        height: 60px;
+        width: 60px;
+        margin: 0 10px;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .contant {
+        margin-left: 15px;
+        margin-top: 40px;
+    }
+
+    .Sec_1,
+    .Sec_2,
+    .Sec_3,
+    .Sec_4,
+    .Sec_5{
+        background-size: cover;
+        overflow-x: hidden;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .contant-img img{
+        width: 300px;
+        height: 300px;
+        margin-top: 12px;
+        margin-left: 30px;
+    }
+
+    .main-contant {
+        width: 100%;
+    }
+
+    .btn-group{
+        gap: 0.5rem;
+    }
+
+    .btn-group button{
+        padding: 0 0.5rem;
+        font-size: 0.5rem;
+    }
+
+    .main h2{
+        font-size: 55px;
+    }
+
+    .main-col h3{
+        padding-bottom: 80px;
+        font-size: 20px;
+    }
+
+    .experience h2{
+        font-size: 55px;
+    }
+
+    .contact h2{
+        font-size: 55px;
+    }
+
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .btn-group {
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .contact li{
+        padding-top: 4px;
+        font-size: 40px;
+        height: 60px;
+        width: 60px;
+        margin: 0 10px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .contant {
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+
+    .Sec_1,
+    .Sec_2,
+    .Sec_3,
+    .Sec_4,
+    .Sec_5{
+        background-size: cover;
+        overflow-x: hidden;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .contant-img{
+        margin-top: 13px;
+        margin-left: 36px;
+    }
+
+    .main-contant {
+        width: 100%;
+    }
+
+    .btn-group{
+        gap: 0.5rem;
+    }
+
+    .btn-group button{
+        padding: 0 0.5rem;
+        font-size: 0.5rem;
+    }
+
+    .main h2{
+        font-size: 55px;
+    }
+
+    .main-col h3{
+        padding-bottom: 80px;
+        font-size: 20px;
+    }
+
+    .experience h2{
+        font-size: 55px;
+    }
+
+    .contact h2{
+        font-size: 55px;
+    }
+
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .btn-group {
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .contact li{
+        padding-top: 4px;
+        font-size: 40px;
+        height: 60px;
+        width: 60px;
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .Sec_1,
+    .Sec_2,
+    .Sec_3,
+    .Sec_4,
+    .Sec_5{
+        background-size: cover;
+        overflow-x: hidden;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .contant {
+        margin-left: 1px;
+        margin-top: 20px;
+    }
+
+    .contant-img img{
+        width: 250px;
+        height: 250px;
+        margin-top: 12px;
+        margin-left: 30px;
+    }
+
+    .contant h2{
+        font-size: 40px;
+    }
+
+    .contant p{
+        font-size: 15px;
+    }
+
+    .main-contant h2 {
+        font-size: 45px;
+        margin: 0 30px;
+    }
+
+    .uni,
+    .collage,
+    .school{
+        font-size: 17px;
+    }
+
+    .btn-group{
+        gap: 0.3rem;
+    }
+
+    .btn-group button{
+        padding: 0.2rem 0.4rem;
+        font-size: 0.9rem;
+    }
+
+    .main h2{
+        font-size: 45px;
+    }
+
+    .main-col h3{
+        padding-bottom: 70px;
+        font-size: 13px;
+    }
+
+    .experience h2{
+        font-size: 45px;
+    }
+
+    .experience p{
+        font-size: 15px;
+    }
+
+    .contact h2{
+        font-size: 45px;
+    }
+
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+    }
+
+
+    .contact li{
+        padding-top: 1px;
+        font-size: 40px;
+        height: 60px;
+        width: 60px;
+        margin: 0 8px;
+    }
+}
+
+
+@media (max-width: 400px) {
+    .contant {
+        margin-left: 1px;
+        margin-top: 20px;
+    }
+
+    .Sec_1,
+    .Sec_2,
+    .Sec_3,
+    .Sec_4,
+    .Sec_5{
+        background-size: cover;
+        overflow-x: hidden;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .contant-img img{
+        width: 200px;
+        height: 200px;
+        margin-top: 12px;
+        margin-left: 30px;
+    }
+
+    .contant h2{
+        font-size: 40px;
+    }
+
+    .contant p{
+        font-size: 15px;
+    }
+
+    .main-contant h2 {
+        font-size: 45px;
+        margin: 0 30px;
+    }
+
+    .uni,
+    .collage,
+    .school{
+        font-size: 17px;
+    }
+
+    .btn-group{
+        gap: 0.2rem;
+    }
+
+    .btn-group button{
+        padding: 0.2rem 0.4rem;
+        font-size: 0.9rem;
+    }
+
+    .main h2{
+        font-size: 45px;
+    }
+
+    .main-col h3{
+        padding-bottom: 70px;
+        font-size: 13px;
+    }
+
+    .experience h2{
+        font-size: 45px;
+    }
+
+    .experience p{
+        font-size: 15px;
+    }
+
+    .contact h2{
+        font-size: 45px;
+    }
+
+
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+    }
+
+
+    .contact li{
+        padding-top: 0.5px;
+        font-size: 35px;
+        height: 55px;
+        width: 55px;
+        margin: 0 9px;
+    }
+}
+
+
+@media (max-width: 300px) {
+    .contant {
+        margin-left: 8px;
+        margin-top: 20px;
+    }
+
+    .Sec_1,
+    .Sec_2,
+    .Sec_3,
+    .Sec_4,
+    .Sec_5{
+        background-size: cover;
+        overflow-x: hidden;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .contant-img{
+        margin-top: 8px;
+        margin-left: 25px;
+    }
+
+    .main-contant {
+        width: 100%;
+    }
+
+    .btn-group{
+        gap: 0.5rem;
+    }
+
+    .btn-group button{
+        padding: 0 0.3rem;
+        font-size: 0.3rem;
+    }
+
+    .main h2{
+        font-size: 55px;
+    }
+
+    .main-col h3{
+        padding-bottom: 80px;
+        font-size: 20px;
+    }
+
+    .experience h2{
+        font-size: 55px;
+    }
+
+    .contact h2{
+        font-size: 55px;
+    }
+
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .btn-group {
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .contact li{
+        padding-top: 4px;
+        font-size: 40px;
+        height: 60px;
+        width: 60px;
+        margin: 0 10px;
+    }
+}
