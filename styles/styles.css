@@ -70,7 +70,7 @@ body{
 .Sec_1 {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/sect_1.png');
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/sect_1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     display: grid;
@@ -145,7 +145,7 @@ body{
 .Sec_2 {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/sect_2.png');
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/sect_2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     display: grid;
@@ -290,7 +290,7 @@ body{
 .Sec_5{
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../assets/sect_5.png');
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../assets/sect_4.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     display: grid;
