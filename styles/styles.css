@@ -17,7 +17,6 @@ body{
     position: fixed;
     top: 0;
     left: 0;
-    /* z-index: 1000; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,7 +69,7 @@ body{
 .Sec_1 {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/sect_1.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../assets/sect_1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     display: grid;
@@ -80,13 +79,14 @@ body{
 }
 
 .contant-col {
-    column-count: 2;
-    column-gap: 20px;
+    width: 80%;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
 }
 
 .contant {
-    margin-left: 200px;
-    margin-top: 80px;
+    width: 50%;
     padding: 20px;
     cursor: pointer;
     text-align: left;
@@ -128,16 +128,15 @@ body{
 }
 
 .contant button:hover {
-    width: 170px;
+    width: 160px;
     font-size: 20px;
     background-color: beige;
 }
 
 
 .contant-img img {
-    margin-right: 50px;
-    width: 400px;
-    height: 400px;
+    width: 370px;
+    height: 370px;
     border-radius: 200px;
     cursor: pointer;
 }
@@ -145,7 +144,7 @@ body{
 .Sec_2 {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/sect_2.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../assets/sect_2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     display: grid;
@@ -213,7 +212,7 @@ body{
 .Sec_3 {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/sect_3.png');
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../assets/sect_3.png');
     background-repeat: no-repeat;
     background-size: cover;
     display: grid;
@@ -259,7 +258,7 @@ body{
 .Sec_4 {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/sect_4.png');
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../assets/sect_4.png');
     background-repeat: no-repeat;
     background-size: cover;
     display: grid;
