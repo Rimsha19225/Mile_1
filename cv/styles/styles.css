@@ -9,6 +9,7 @@
     width: 100%;
     height: auto;
     background-color: #423e3e;
+    padding: 2px 400px 30px 400px;
 }
 
 h1{
@@ -22,34 +23,25 @@ h2{
     font-size: 25px;
 }
 
-h2:hover{
-    font-size: 27px;
-}
-
-h1:hover{
-    font-size: 32px;
-}
-
 ul{
     list-style-type: none;
 }
 
 .aside-portion p{
-    font-size: 19px;
+    font-size: 15px;
 }
 
 .container{
     width: 700px;
-    height: 900px;
+    height: auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-left: 27%;
     background-color: #f8b25c;
 }
 
 aside{
-    height: 860px;
+    height: 895px;
     text-align: justify;
 }
 
@@ -57,15 +49,15 @@ aside{
     padding: 35px 0 15px 0;
 }
 
-.aside-portion img{
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+.img{
+    width: 100%;
+    padding: 0px 20px;
 }
 
-.aside-portion img:hover{
-    width: 210px;
-    height: 210px;
+.aside-portion img{
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
 }
 
 .aside-portion li{
@@ -79,145 +71,148 @@ aside{
 
 .top-area h2{
     width: 100%;
-    height: 200px;
+    height: 235px;
     background-color: #f7ca93;
     font-size: 65px;
     color: #8b0000;
-    padding: 50px;
-}
-
-.top-area h2:hover{
-    font-size: 68px;
+    padding-top: 80px;
 }
 
 h2{
     font-size: 25px;
     color: #8b0000;
-    text-shadow: -3px 0 3px black;
+    text-shadow: -2px 0 2px black;
 }
 
 .content p{
+    font-size: 15px;
     padding-top: 10px;
-    color: bisque;
-    text-shadow: -2px 1px 2px black;
+    color: black;
 }
 
 .content h2{
     padding-top: 15px;
 }
 
+.top-area{
+        margin-bottom: 25px;
+    }
+
 /* Media queries for responsiveness */
 
 /* Tablet devices (max-width: 900px) */
-@media (max-width: 900px) {
+@media (max-width: 900px)  {
     .body{
-        height: 150vh;
+        height: auto;
+        padding: 30px;
     }
 
     .container {
         width: 100%;
-        height: 110vh;
-        max-width: 90%;
+        height: auto;
         padding: 15px;
-        margin-left: 5px;
+        margin-left: 1px;
     }
 
-    .top-area h2 {
+    .top-area{
+        margin-bottom: 40px;
+    }
+
+    .top-area h2{
         width: 100%;
-        height: 130px;
-        font-size: 40px;
+        height: 190px;
+        font-size: 50px;
+        padding-top: 60px;
     }
 
-    .top-area h2:hover{
-        font-size: 43px;
+    .img{
+        padding: 0px 27px;
     }
 
     .aside-portion img {
-        width: 150px;
-        height: 150px;
-    }
-
-    .aside-portion img:hover {
-        width: 160px;
-        height: 160px;
+        width: 190px;
+        height: 190px;
     }
 
     h1 {
-        font-size: 28px;
-    }
-
-    h1:hover {
-        font-size: 30px;
-    }
-
-    h2 {
-        font-size: 22px;
-    }
-
-    h2:hover {
         font-size: 24px;
     }
 
+
+    h2 {
+        font-size: 20px;
+        text-shadow: -1px 0 1px black;
+    }
+
+    aside{
+        width: 30%;
+        height: 755px;
+    }
+
     .aside-portion p {
-        font-size: 17px;
+        font-size: 13px;
+    }
+
+    .aside-portion li {
+        padding: 8px 0;
+        font-size: 10px;
+    }
+
+    .aside-portion i {
+        font-size: 20px;
+    }
+
+    .content p {
+        font-size: 13px;
+        text-shadow: 0px 0px 0px black;
+        color: black;
+        padding-top: 7px;
     }
 }
 
 /* Mobile devices (max-width: 600px) */
 @media (max-width: 600px) {
     .body{
-        height: 150vh;
+        height: auto;
+        padding: 7px;
     }
 
     .container {
         width: 100%;
-        max-width: 95%;
+        height: auto;
         padding: 10px;
     }
 
-    .top-area h2 {
-        font-size: 20px;
-        padding: 40px;
+    .img{
+        padding: 0px 2px;
     }
 
     .aside-portion img {
-        width: 100px;
-        height: 100px;
-    }
-
-    .aside-portion img:hover {
-        width: 105px;
-        height: 105px;
+        width: 95px;
+        height: 95px;
     }
 
     aside{
         width: 30%;
-        height: 707px;
+        height: 535px;
     }
 
     h1 {
         font-size: 25px;
     }
 
-    h1:hover {
-        font-size: 28px;
-    }
-
     h2 {
-        font-size: 20px;
-    }
-
-    h2:hover {
-        font-size: 22px;
+        font-size: 13px;
+        text-shadow: -1px 0 1px black;
     }
 
     .aside-portion p {
-        font-size: 15px;
+        font-size: 9px;
     }
 
     .aside-portion li {
-        padding: 10px 0;
-        font-size: 9px;
+        padding: 8px 0;
+        font-size: 6px;
     }
 
     .aside-portion i {
@@ -225,10 +220,20 @@ h2{
     }
 
     .top-area h2 {
-        font-size: 40px;
+        width: 100%;
+        height: 120px;
+        font-size: 25px;
+        padding-top: 45px;
+    }
+
+    .top-area{
+        margin-bottom: 11px;
     }
 
     .content p {
-        font-size: 12px;
+        font-size: 8px;
+        text-shadow: 0px 0px 0px black;
+        color: black;
+        padding-top: 7px;
     }
 }
