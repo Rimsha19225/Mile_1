@@ -1,35 +1,60 @@
-// Get references to form elements
-var resumeForm = document.getElementById('resumeForm');
-var nameInput = document.getElementById('name');
-var emailInput = document.getElementById('email');
-var degreeInput = document.getElementById('degree');
-var institutionInput = document.getElementById('institution');
-var yearInput = document.getElementById('year');
-var companyInput = document.getElementById('company');
-var positionInput = document.getElementById('position');
-var experienceYearsInput = document.getElementById('experienceYears');
-var skillsInput = document.getElementById('skills');
-var fileInput = document.getElementById('file');
-var resumePicture = document.getElementById('resumePicture');
-// Event listener to handle form submission
-resumeForm.addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent page refresh
-    // Handle image display
-    if (fileInput.files && fileInput.files[0]) {
-        var file = fileInput.files[0];
+(function () {
+    var form = document.getElementById("resumeForm");
+    var output = document.getElementById("resumeOutput");
+    form.addEventListener("submit", function (e) {
+        var _a;
+        e.preventDefault();
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("phone").value;
+        var address = document.getElementById("address").value;
+        var about = document.getElementById("about").value;
+        var educationGroups = document.querySelectorAll(".education-group");
+        var educationHTML = Array.from(educationGroups).map(function (group) {
+            var level = group.querySelector('[name="level"]').value;
+            var degree = group.querySelector('[name="degree"]').value;
+            var institution = group.querySelector('[name="institution"]').value;
+            var year = group.querySelector('[name="year"]').value;
+            return "\n            <div style=\"margin-bottom: 15px;\">\n                <strong>".concat(level, "</strong><br/>\n                <span>").concat(degree, " - ").concat(institution, " (").concat(year, ")</span>\n            </div>");
+        }).join("");
+        var experienceGroups = document.querySelectorAll(".experience-group");
+        var experienceHTML = Array.from(experienceGroups).map(function (group) {
+            var company = group.querySelector('[name="company"]').value;
+            var experienceYears = group.querySelector('[name="experienceYears"]').value;
+            var para = group.querySelector('[name="eperience"]').value;
+            return "<p><strong>".concat(company, " - ").concat(experienceYears, " year(s)</strong></p><p>").concat(para, "</p>");
+        }).join("");
+        var skills = document.getElementById("skills").value.split(",");
+        var hobbies = document.getElementById("hobbies").value.split(",");
+        var fileInput = document.getElementById("file");
+        var file = (_a = fileInput.files) === null || _a === void 0 ? void 0 : _a[0];
         var reader = new FileReader();
-        reader.onload = function (e) {
-            if (e.target) {
-                resumePicture.innerHTML = "<img src=\"".concat(e.target.result, "\" alt=\"Profile Picture\" class=\"profile-pic\">");
-            }
+        reader.onload = function () {
+            var imgSrc = reader.result;
+            output.innerHTML = "\n        <div class=\"resume\">\n          <div class=\"left\">\n            <img src=\"".concat(imgSrc, "\" alt=\"Profile\" class=\"profile-pic\" />\n            <div class=\"section-title\">Contact</div>\n            <p><span class=\"icon-circle\"><i class=\"fas fa-envelope\"></i></span> ").concat(email, "</p>\n            <p><span class=\"icon-circle\"><i class=\"fas fa-phone\"></i></span> ").concat(phone, "</p>\n            <p><span class=\"icon-circle\"><i class=\"fas fa-map-marker-alt\"></i></span> ").concat(address, "</p>\n            <div class=\"section-title\">Skills</div>\n            <ul>").concat(skills.map(function (skill) { return "<li>".concat(skill.trim(), "</li>"); }).join(""), "</ul>\n            <div class=\"section-title\">Hobbies</div>\n            <ul>").concat(hobbies.map(function (hobby) { return "<li>".concat(hobby.trim(), "</li>"); }).join(""), "</ul>\n          </div>\n          <div class=\"right\">\n            <div class=\"my-scriptina-text\">\n                <h2 class=\"name-head\">").concat(name, "</h2>\n            </div>\n            <div class=\"sub-right\">\n                <h2 class=\"about\">About Me</h2>\n                <p class=\"about-para\">").concat(about, "</p>\n                <h2 class=\"education\">Education</h2>\n                <p class=\"edu-area\">").concat(educationHTML, "</p>\n                <h2 class=\"experience\">Experience</h2>\n                <p class=\"exp-area\">").concat(experienceHTML, "</p>\n            </div>\n          </div>\n        </div>\n      ");
         };
-        reader.readAsDataURL(file);
-    }
-    // Create the resume dynamically
-    var resume = "\n        <h1>".concat(nameInput.value, "'s Resume</h1>\n        <section>\n            <h2>Personal Information</h2>\n            <p><strong>Name:</strong> ").concat(nameInput.value, "</p>\n            <p><strong>Email:</strong> ").concat(emailInput.value, "</p>\n        </section>\n\n        <section>\n            <h2>Education</h2>\n            <p><strong>Degree:</strong> ").concat(degreeInput.value, "</p>\n            <p><strong>Institution:</strong> ").concat(institutionInput.value, "</p>\n            <p><strong>Year of Graduation:</strong> ").concat(yearInput.value, "</p>\n        </section>\n\n        <section>\n            <h2>Work Experience</h2>\n            <p><strong>Company:</strong> ").concat(companyInput.value, "</p>\n            <p><strong>Position:</strong> ").concat(positionInput.value, "</p>\n            <p><strong>Years of Experience:</strong> ").concat(experienceYearsInput.value, "</p>\n        </section>\n\n        <section>\n            <h2>Skills</h2>\n            <p>").concat(skillsInput.value, "</p>\n        </section>\n    ");
-    // Display the resume in the browser
-    var resumeSection = document.createElement('section');
-    resumeSection.innerHTML = resume;
-    // Append the generated resume to the body (or any specific container)
-    document.body.appendChild(resumeSection);
-});
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    });
+})();
+function addEducation() {
+    var container = document.getElementById('educationContainer');
+    var group = document.createElement('div');
+    group.className = 'education-group';
+    group.style.padding = '15px';
+    group.style.borderBottom = '1px solid #ccc';
+    group.style.marginBottom = '10px';
+    group.innerHTML = "\n    <input type=\"text\" name=\"level\" placeholder=\"Education Level (e.g., Graduation, College, School)\" required />\n    <input type=\"text\" name=\"degree\" placeholder=\"Degree (e.g. Program)\" required />\n    <input type=\"text\" name=\"institution\" placeholder=\"Institution\" required />\n    <input type=\"number\" name=\"year\" placeholder=\"Graduation Year\" required />\n  ";
+    container === null || container === void 0 ? void 0 : container.appendChild(group);
+}
+function addExperience() {
+    var container = document.getElementById('experienceContainer');
+    var group = document.createElement('div');
+    group.className = 'experience-group';
+    group.style.padding = '15px';
+    group.style.borderBottom = '1px solid #ccc';
+    group.style.marginBottom = '10px';
+    group.innerHTML = "\n    <input type=\"text\" name=\"company\" placeholder=\"Company\" />\n    <input type=\"number\" name=\"experienceYears\" placeholder=\"Years of Experience\" />\n    <textarea name=\"eperience\" placeholder=\"Experience Description\" required></textarea>\n  ";
+    container === null || container === void 0 ? void 0 : container.appendChild(group);
+}

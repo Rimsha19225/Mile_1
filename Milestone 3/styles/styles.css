@@ -4,213 +4,189 @@
     box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'Scriptina';
+  src: url('../fonts/SCRIPTIN.ttf') format('truetype');
+}
+
+.my-scriptina-text {
+  font-family: 'Scriptina', cursive;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #e8f0fe;
+  padding: 20px;
 }
 
 h1 {
-    text-align: center;
-    color: #333;
+  text-align: center;
 }
 
-/* Form Styling */
 form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-section {
-    margin-bottom: 20px;
+input, textarea, button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
 }
 
-section h2 {
-    margin-bottom: 10px;
-    color: #4CAF50;
-    font-size: 18px;
+button {
+  background: #0059b3;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
 
-/* Add horizontal lines */
-section {
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+button:hover {
+  background: #004080;
 }
 
-section:last-of-type {
-    border-bottom: none; /* Remove border from the last section */
+
+.resume {
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
+.left, .sub-right {
+  padding: 20px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="number"],
-input[type="file"] {
+.left {
+  background-color: #0c1f49;
+  color: white;
+  flex: 1;
+  min-width: 35%;
+}
+
+.right{
+    flex: 2;
+    min-width: 65%;
+    background-color: white;
+}
+
+.right .my-scriptina-text {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+    background-image: url("../assets/back-image.jpg");
+    background-repeat: no-repeat;
 }
 
-button[type="submit"] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
-
-button[type="submit"]:hover {
-    background-color: #45a049;
-}
-
-/* Resume Styles */
-section.resume {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-}
-
-section.resume h2 {
-    color: #333;
-}
-
-section.resume p {
-    margin: 10px 0;
-    font-size: 16px;
-}
-
-section.resume strong {
-    font-weight: bold;
-    color: #4CAF50;
-}
-
-/* Background for the resume section */
-body {
-    background-color: #f4f4f4;
-}
-
-section.resume {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-}
-
-
-.resume-picture {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+.name-head {
+    width: 90%;
+    color: #0c1f49;
+    padding: 0px 10px 30px 10px;
+    font-size: 70px;
+    text-shadow: 0 2px 4px rgb(0, 191, 255, 0.6);
+    text-align: center;
 }
 
 .profile-pic {
-    width: 100px; /* Adjust size as needed */
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #4CAF50; /* Optional: add a border for better visibility */
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  margin: 0 auto 15px;
+  display: block;
 }
 
-section.resume {
-    display: flex;
-    align-items: flex-start; /* Align items at the top */
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+.section-title {
+  color: #00bfff;
+  margin-top: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  padding-bottom: 15px;
+
 }
 
-
-@media (max-width: 767px) {
-    body {
-        padding: 10px;
-    }
-
-    form {
-        padding: 10px;
-        margin: 10px auto;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="number"],
-    input[type="file"] {
-        padding: 8px;
-    }
-
-    button[type="submit"] {
-        padding: 8px;
-        font-size: 16px;
-    }
-
-    section {
-        margin-bottom: 15px;
-    }
-
-    .resume-picture {
-        margin-bottom: 15px;
-    }
-
-    .profile-pic {
-        width: 80px;
-        height: 80px;
-    }
+.left p{
+    padding-bottom: 12px;
 }
 
-/* Tablets */
-@media (min-width: 768px) and (max-width: 1024px) {
-    body {
-        padding: 15px;
-    }
-
-    form {
-        padding: 15px;
-        margin: 15px auto;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="number"],
-    input[type="file"] {
-        padding: 9px;
-    }
-
-    button[type="submit"] {
-        padding: 9px;
-        font-size: 17px;
-    }
-
-    section {
-        margin-bottom: 18px;
-    }
-
-    .resume-picture {
-        margin-bottom: 18px;
-    }
-
-    .profile-pic {
-        width: 90px;
-        height: 90px;
-    }
+ul {
+  padding-left: 18px;
+  padding-bottom: 12px;
 }
+
+.left li{
+    padding-bottom: 10px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.about, .education, .experience {
+    width: 200px;
+    color: #fff;
+    padding: 12px 35px;
+    background-color: #0c1f49;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 6px 0 0 #00bfff; 
+}
+
+.about-para, .edu-area, .exp-area{
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    color: #0c1f49;
+    margin-bottom: 10px;
+}
+
+.icon-circle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #00bfff;
+  color: white;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.education-group input {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.education-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.experience-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.education-button, .experience-button{
+    width: 150px;
+    text-align: center;
+}
+
