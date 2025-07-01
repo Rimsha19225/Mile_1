@@ -72,14 +72,16 @@
             downloadBtn.addEventListener("click", () => {
                 const resumeElement = document.getElementById("resume");
                 if (resumeElement) {
-                    const opt = {
-                        margin: 0,
-                        filename: 'my_resume.pdf',
-                        image: { type: 'jpeg', quality: 0.98 },
-                        html2canvas: { scale: 2 },
-                        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-                    };
-                    html2pdf().from(resumeElement).set(opt).save();
+                    setTimeout(() => {
+                        const opt = {
+                            margin: 0,
+                            filename: 'my_resume.pdf',
+                            image: { type: 'jpeg', quality: 0.98 },
+                            html2canvas: { scale: 2 },
+                            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                        };
+                        html2pdf().from(resumeElement).set(opt).save();
+                    }, 500);
                 }
             });
             const printBtn = document.getElementById("printBtn");
