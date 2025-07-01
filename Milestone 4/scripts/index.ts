@@ -1,182 +1,117 @@
-// Toggle visibility of Work Experience based on job status
-const jobStatus = document.getElementById('job-status') as HTMLSelectElement;
-const workDetails = document.getElementById('work-details') as HTMLDivElement;
+(() => {
+  const form = document.getElementById("resumeForm") as HTMLFormElement;
+  const output = document.getElementById("resumeOutput") as HTMLDivElement;
 
-jobStatus.addEventListener('change', () => {
-  workDetails.style.display = jobStatus.value === 'yes' ? 'block' : 'none';
-});
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-// Dynamically show education details based on selected level
-const educationLevel = document.getElementById('education-level') as HTMLSelectElement;
-const educationDetails = document.getElementById('education-details') as HTMLDivElement;
+    const name = (document.getElementById("name") as HTMLInputElement).value;
+    const email = (document.getElementById("email") as HTMLInputElement).value;
+    const phone = (document.getElementById("phone") as HTMLInputElement).value;
+    const address = (document.getElementById("address") as HTMLInputElement).value;
+    const about = (document.getElementById("about") as HTMLTextAreaElement).value;
 
-educationLevel.addEventListener('change', () => {
-  let html = '';
-  switch (educationLevel.value) {
-    case 'school':
-      html = `
-        <label for="school-name">School Name:</label>
-        <input type="text" id="school-name" placeholder="Your School Name">
-        <label for="degree">Degree:</label>
-        <input type="text" id="degree" placeholder="Degree Name">
-        <label for="school-year">Year:</label>
-        <input type="text" id="school-year" placeholder="Passout Year">
-      `;
-      break;
-    case 'college':
-      html = `
-        <label for="college-name">College Name:</label>
-        <input type="text" id="college-name" placeholder="Your College Name">
-        <label for="degree">Degree:</label>
-        <input type="text" id="degree" placeholder="Degree Name">
-        <label for="college-year">Year:</label>
-        <input type="text" id="college-year" placeholder="Passout Year">
-        <label for="school-name">School Name:</label>
-        <input type="text" id="school-name" placeholder="Your School Name">
-        <label for="degree">Degree:</label>
-        <input type="text" id="degree" placeholder="Degree Name">
-        <label for="school-year">Year:</label>
-        <input type="text" id="school-year" placeholder="Passout Year">
-      `;
-      break;
-    case 'university':
-      html = `
-        <label for="university-name">University Name:</label>
-        <input type="text" id="university-name" placeholder="Your University Name">
-        <label for="degree">Degree:</label>
-        <input type="text" id="degree" placeholder="Degree Name">
-        <label for="university-year">Year:</label>
-        <input type="text" id="university-year" placeholder="Passout Year">
-        <label for="college-name">College Name:</label>
-        <input type="text" id="college-name" placeholder="Your College Name">
-        <label for="degree">Degree:</label>
-        <input type="text" id="degree" placeholder="Degree Name">
-        <label for="college-year">Year:</label>
-        <input type="text" id="college-year" placeholder="Passout Year">
-        <label for="school-name">School Name:</label>
-        <input type="text" id="school-name" placeholder="Your School Name">
-        <label for="degree">Degree:</label>
-        <input type="text" id="degree" placeholder="Degree Name">
-        <label for="school-year">Year:</label>
-        <input type="text" id="school-year" placeholder="Passout Year">
-      `;
-      break;
-  }
-  educationDetails.innerHTML = html;
-});
+    const educationGroups = document.querySelectorAll(".education-group");
+        const educationHTML = Array.from(educationGroups).map(group => {
+        const level = (group.querySelector('[name="level"]') as HTMLInputElement).value;
+        const degree = (group.querySelector('[name="degree"]') as HTMLInputElement).value;
+        const institution = (group.querySelector('[name="institution"]') as HTMLInputElement).value;
+        const year = (group.querySelector('[name="year"]') as HTMLInputElement).value;
+        return `
+            <div style="margin-bottom: 15px;">
+                <strong>${level}</strong><br/>
+                <span>${degree} - ${institution} (${year})</span>
+            </div>`;
+        }).join("");
 
-// Handle image preview
-const profilePictureInput = document.getElementById('profile-picture') as HTMLInputElement;
-const imgElement = document.getElementById('profile-picture-preview') as HTMLImageElement;
+    const experienceGroups = document.querySelectorAll(".experience-group");
+    const experienceHTML = Array.from(experienceGroups).map(group => {
+    const company = (group.querySelector('[name="company"]') as HTMLInputElement).value;
+    const experienceYears = (group.querySelector('[name="experienceYears"]') as HTMLInputElement).value;
+    const para = (group.querySelector('[name="eperience"]') as HTMLTextAreaElement).value;
+    return `<p><strong>${company} - ${experienceYears} year(s)</strong></p><p>${para}</p>`;
+    }).join("");
 
-profilePictureInput.addEventListener('change', function () {
-  const file = this.files?.[0];
-  if (file) {
+    const skills = (document.getElementById("skills") as HTMLInputElement).value.split(",");
+    const hobbies = (document.getElementById("hobbies") as HTMLInputElement).value.split(",");
+
+    const fileInput = document.getElementById("file") as HTMLInputElement;
+    const file = fileInput.files?.[0];
+
     const reader = new FileReader();
-    reader.onload = function (e) {
-      if (imgElement) {
-        imgElement.src = e.target?.result as string;
-      } else {
-        const newImgElement = document.createElement('img');
-        newImgElement.id = 'profile-picture-preview';
-        newImgElement.style.width = '150px';
-        newImgElement.style.height = '150px';
-        newImgElement.style.float = 'right'; // Align the image to the right
-        newImgElement.style.borderRadius = '50%'; // Optional: Add a circular profile effect
-        newImgElement.style.margin = '0 50px';
-        newImgElement.style.marginTop = '20px'; // Add some margin around the image
-        newImgElement.src = e.target?.result as string;
-        document.body.appendChild(newImgElement);
-      }
+    reader.onload = () => {
+      const imgSrc = reader.result as string;
+
+      output.innerHTML = `
+        <div class="resume">
+          <div class="left">
+            <img src="${imgSrc}" alt="Profile" class="profile-pic" />
+            <div class="section-title">Contact</div>
+            <p><span class="icon-circle"><i class="fas fa-envelope"></i></span> ${email}</p>
+            <p><span class="icon-circle"><i class="fas fa-phone"></i></span> ${phone}</p>
+            <p><span class="icon-circle"><i class="fas fa-map-marker-alt"></i></span> ${address}</p>
+            <div class="section-title">Skills</div>
+            <ul>${skills.map(skill => `<li>${skill.trim()}</li>`).join("")}</ul>
+            <div class="section-title">Hobbies</div>
+            <ul>${hobbies.map(hobby => `<li>${hobby.trim()}</li>`).join("")}</ul>
+          </div>
+          <div class="right">
+            <div class="my-scriptina-text">
+                <h2 class="name-head">${name}</h2>
+            </div>
+            <div class="sub-right">
+                <h2 class="about">About Me</h2>
+                <p class="about-para">${about}</p>
+                <h2 class="education">Education</h2>
+                <p class="edu-area">${educationHTML}</p>
+                <h2 class="experience">Experience</h2>
+                <p class="exp-area">${experienceHTML}</p>
+            </div>
+          </div>
+        </div>
+      `;
     };
-    reader.readAsDataURL(file);
-  }
-});
 
-// Submit button functionality to create the resume
-const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  });
+})();
 
-submitBtn.addEventListener('click', (event) => {
-  event.preventDefault();
+function addEducation() {
+  const container = document.getElementById('educationContainer');
 
-  // Capture personal information
-  const name = (document.getElementById('name') as HTMLInputElement)?.value || '';
-  const email = (document.getElementById('email') as HTMLInputElement)?.value || '';
-  const phone = (document.getElementById('phone') as HTMLInputElement)?.value || '';
-  const address = (document.getElementById('address') as HTMLInputElement)?.value || '';
+  const group = document.createElement('div');
+  group.className = 'education-group';
+  group.style.padding = '15px';
+  group.style.borderBottom = '1px solid #ccc';
+  group.style.marginBottom = '10px';
 
-   // Capture education details
-   let educationInfo = '';
-   if (educationLevel.value === 'school') {
-     const schoolName = (document.getElementById('school-name') as HTMLInputElement)?.value || '';
-     const schoolDegree = (document.getElementById('degree') as HTMLInputElement)?.value || '';
-     const schoolYear = (document.getElementById('school-year') as HTMLInputElement)?.value || '';
-     educationInfo = `<p><strong>School:</strong> ${schoolName} <br> <strong>Degree:</strong> ${schoolDegree} <br> <strong>Year:</strong> ${schoolYear}</p>`;
-   } else if (educationLevel.value === 'college') {
-     const collegeName = (document.getElementById('college-name') as HTMLInputElement)?.value || '';
-     const collegeDegree = (document.getElementById('degree') as HTMLInputElement)?.value || '';
-     const collegeYear = (document.getElementById('college-year') as HTMLInputElement)?.value || '';
-     const schoolName = (document.getElementById('school-name') as HTMLInputElement)?.value || '';
-     const schoolDegree = (document.getElementById('degree') as HTMLInputElement)?.value || '';
-     const schoolYear = (document.getElementById('school-year') as HTMLInputElement)?.value || '';
-     educationInfo =` <p><strong>College:</strong> ${collegeName} <br> <strong>Degree:</strong> ${collegeDegree} <br> <strong>Year:</strong> ${collegeYear} <br> <strong>School:</strong> ${schoolName} <br> <strong>Degree:</strong> ${schoolDegree} <br> <strong>Year:</strong> ${schoolYear}</p>`;
-   } else if (educationLevel.value === 'university') {
-     const universityName = (document.getElementById('university-name') as HTMLInputElement)?.value || '';
-     const universityDegree = (document.getElementById('degree') as HTMLInputElement)?.value || '';
-     const universityYear = (document.getElementById('university-year') as HTMLInputElement)?.value || '';
-     const collegeName = (document.getElementById('college-name') as HTMLInputElement)?.value || '';
-     const collegeDegree = (document.getElementById('degree') as HTMLInputElement)?.value || '';
-     const collegeYear = (document.getElementById('college-year') as HTMLInputElement)?.value || '';
-     const schoolName = (document.getElementById('school-name') as HTMLInputElement)?.value || '';
-     const schoolDegree = (document.getElementById('degree') as HTMLInputElement)?.value || '';
-     const schoolYear = (document.getElementById('school-year') as HTMLInputElement)?.value || '';
-     educationInfo = `<p><strong>University:</strong> ${universityName} <br> <strong>Degree:</strong> ${universityDegree} <br> <strong>Year:</strong> ${universityYear} <br> <strong>College:</strong> ${collegeName} <br> <strong>Degree:</strong> ${collegeDegree} <br> <strong>Year:</strong> ${collegeYear} <br> <strong>School:</strong> ${schoolName}<br> <strong>Degree:</strong> ${schoolDegree}<br> <strong>Year:</strong> ${schoolYear}</p>`;
-   }
-
-  // Capture skills data
-  const skillsInput = document.getElementById('skills') as HTMLInputElement;
-  const skills = skillsInput?.value || 'No skills provided';
-
-  // Capture work experience if applicable
-  let workExperience = '';
-  if (jobStatus.value === 'yes') {
-    const companyName = (document.getElementById('company-name') as HTMLInputElement)?.value || '';
-    const jobTitle = (document.getElementById('job-title') as HTMLInputElement)?.value || '';
-    const jobYear = (document.getElementById('job-year') as HTMLInputElement)?.value || '';
-    workExperience = `
-      <h3>Work Experience</h3>
-      <p><strong>Company Name:</strong> ${companyName}</p>
-      <p><strong>Job Title:</strong> ${jobTitle}</p>
-      <p><strong>Years of Experience:</strong> ${jobYear}</p>
-    `;
-  }
-
-  // Generate resume HTML
-  const resume = `
-    <h2>${name} Resume</h2>
-    <section>
-      <h3>Personal Information</h3>
-      <img src="${imgElement?.src || ''}" style="width: 150px; float: right; border-radius: 50%; margin: 20px;">
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Phone:</strong> ${phone}</p>
-      <p><strong>Address:</strong> ${address}</p>
-    </section>
-    <section>
-      <h3>Education</h3>
-      ${educationInfo || 'No education information provided.'}
-    </section>
-    <section>
-      <h3>Skills</h3>
-      <p>${skills}</p>
-    </section>
-    ${workExperience}
+  group.innerHTML = `
+    <input type="text" name="level" placeholder="Education Level (e.g., Graduation, College, School)" required />
+    <input type="text" name="degree" placeholder="Degree (e.g. Program)" required />
+    <input type="text" name="institution" placeholder="Institution" required />
+    <input type="number" name="year" placeholder="Graduation Year" required />
   `;
 
-  // Display the resume in a new section
-  const resumeContainer = document.createElement('div');
-  resumeContainer.className = 'resume-container';
-  resumeContainer.innerHTML = resume;
+  container?.appendChild(group);
+}
 
-  document.body.appendChild(resumeContainer);
-});
+
+function addExperience() {
+  const container = document.getElementById('experienceContainer');
+
+  const group = document.createElement('div');
+  group.className = 'experience-group';
+  group.style.padding = '15px';
+  group.style.borderBottom = '1px solid #ccc';
+  group.style.marginBottom = '10px';
+
+  group.innerHTML = `
+    <input type="text" name="company" placeholder="Company" />
+    <input type="number" name="experienceYears" placeholder="Years of Experience" />
+    <textarea name="eperience" placeholder="Experience Description" required></textarea>
+  `;
+
+  container?.appendChild(group);
+}

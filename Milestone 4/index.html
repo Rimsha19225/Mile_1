@@ -1,70 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Static Resume Form</title>
-  <link rel="stylesheet" href="./styles/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Resume</title>
+  <link rel="stylesheet" href="./styles/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Resume Form</h1>
-    <form id="resume-form">
-      <div class="box">
-        <section id="personal-info">
-            <h2>Personal Information</h2>
-            <label for="profile-picture">Profile Picture:</label>
-            <input type="file" id="profile-picture" accept="image/*">
-            <label for="name">Name:</label>
-            <input type="text" id="name" placeholder="Your Name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <label for="phone">Mobile Number:</label>
-            <input type="text" id="phone" placeholder="Your Mobile Number" required>
-            <label for="address">Address:</label>
-            <input type="text" id="address" placeholder="Your Address" required>
-          </section>
+  <h1>Create Resume</h1>
+  <form id="resumeForm">
 
-        <section id="education">
-          <h2>Education</h2>
-          <label for="education-level">Select Education Level:</label>
-          <select id="education-level">
-            <option value="school">School</option>
-            <option value="college">College</option>
-            <option value="university">University</option>
-          </select>
-          <div id="education-details"></div>
-        </section>
+    <label>Upload Picture:</label>
+    <input type="file" id="file" required /><br/>
 
-        <section id="skills-info">
-          <h2>Skills</h2>
-          <label for="skills">Skills (comma separated):</label>
-          <input type="text" id="skills" placeholder="Your Skills" required>
-        </section>
+     <h2>Personal Info</h2>
+    <input type="text" id="name" placeholder="Full Name" required />
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="text" id="phone" placeholder="Phone" required />
+    <input type="text" id="address" placeholder="Address" required />
+    <textarea id="about" placeholder="About Me" required></textarea>
 
-        <section id="work-experience">
-            <h2>Work Experience</h2>
-            <label for="job-status">Do you have a job?</label>
-            <select id="job-status">
-              <option value="no">No</option>
-              <option value="yes">Yes</option>
-            </select>
-            <div id="work-details" style="display:none;">
-              <label for="company-name">Company Name:</label>
-              <input type="text" id="company-name" placeholder="Company Name">
-              <label for="job-title">Job Title:</label>
-              <input type="text" id="job-title" placeholder="Position">
-              <label for="job-year">Years of Experience:</label>
-              <input type="text" id="job-year" placeholder="Years">
-            </div>
-          </section>
+    <h2>Education</h2>
+    <div id="educationContainer">
+        <div class="education-group">
+            <input type="text" name="level" placeholder="Education Level (e.g., Graduation, College, School)" required />
+            <input type="text" name="degree" placeholder="Degree (e.g. Program)" required />
+            <input type="text" name="institution" placeholder="Institution" required />
+            <input type="number" name="year" placeholder="Graduation Year" required />
+        </div>
+    </div>
+    <button type="button" class="education-button" onclick="addEducation()">More Education</button>
 
-        <h5>By Rimsha Arshad</h5>
-        <button type="button" id="submit-btn">Create Resume</button>
-      </div>
-    </form>
-  </div>
+     <h2>Experience</h2>
+    <div id="experienceContainer">
+        <div class="experience-group">
+            <input type="text" name="company" placeholder="Company" />
+            <input type="number" name="experienceYears" placeholder="Years of Experience" />
+            <textarea name="eperience" placeholder="Experience Description" required></textarea>
+        </div>
+    </div>
+    <button type="button" class="experience-button" onclick="addExperience()">More Experience</button>
 
-  <script src="./scripts/index.js"></script>
+
+    <h2>Skills + Hobbies</h2>
+    <input type="text" id="skills" placeholder="Skills (comma separated)" required />
+    <input type="text" id="hobbies" placeholder="Hobbies (comma separated)" required />
+
+    <button type="submit">Create Resume</button>
+    <h5 class="footer">By Rimsha Arshad</h5>
+  </form>
+
+  <div id="resumeOutput"></div>
+
+  <script src="./scripts/index.js" defer></script>
 </body>
 </html>
